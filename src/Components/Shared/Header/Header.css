@@ -1,0 +1,9 @@
+.nav-link{
+    margin: 0 15px;
+    text-decoration: none;
+   
+}
+.is-active{
+    background-color: aquamarine;
+    color: white;
+}
