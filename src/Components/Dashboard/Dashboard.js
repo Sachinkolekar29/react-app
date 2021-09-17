@@ -3,7 +3,12 @@ import { Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-const Dashboard =()=>{
+
+import doMagic from '../../hoc/doMagic';
+
+const Dashboard = (props) => {
+
+    console.log('props ==>', props);
     return (
         <Fragment>
         

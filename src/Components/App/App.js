@@ -5,6 +5,7 @@ import Login from '../../Login/Login';
 import Dashboard from '../Dashboard/Dashboard';
 import Contact from '../Contact/Contact'
 import Header from '../Shared/Header/Header';
+import PrivateRoute from '../Shared/PrivateRoute';
 
 import './App.css';
 
@@ -17,8 +18,8 @@ function App({token
   
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/contacts" component={Contact}/>
+        <PrivateRoute path="/dashboard" component={Dashboard} />
+        <PrivateRoute path="/contacts" component={Contact}/>
       </Switch>
     </Fragment>
   );
@@ -28,4 +29,4 @@ const mapStateToProps=(state)=>{
     token: state.login.token
   }
 }
-export default connect(mapStateToProps)(App) ;
+export default connect(mapStateToProps)(App);

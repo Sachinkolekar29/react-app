@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import { useHistory } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import { userLoggedIn } from '../redux/action/loginAction';
+import { userLoggedIn, userLoggedOut } from '../redux/action/loginAction';
 import './Login.css';
 
 const Login=({
     loginUser,
-    token
+    token,
+    userLoggedOut
 })=>{
 
     //Initial form state
@@ -17,6 +18,9 @@ const Login=({
         password:''
     });
     const history=useHistory();
+    useEffect(() => {
+        userLoggedOut();
+    }, [])
     useEffect(()=>{
         if(token){
             history.push('/Dashboard');
@@ -77,6 +81,7 @@ const mapStateToProps=(state)=>{
 };
 const mapDispatchToProps=(dispatch)=>{
     return {
+        userLoggedOut: () => dispatch(userLoggedOut()),
         loginUser:(userCredentials)=> dispatch(userLoggedIn(userCredentials))
     };
 };
